@@ -25,23 +25,29 @@ public final class R {
         public static final int loader=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080014;
+        public static final int action_settings=0x7f08001a;
         public static final int alamat_editText=0x7f080006;
         public static final int alamat_textView=0x7f08000b;
-        public static final int btnBatal=0x7f080013;
-        public static final int btnSimpan=0x7f080012;
+        public static final int btnBatal=0x7f080019;
+        public static final int btnHitung=0x7f080015;
+        public static final int btnSimpan=0x7f080018;
         public static final int btnTransaksi=0x7f080000;
         public static final int hapus_btn=0x7f080009;
         public static final int kirim_btn=0x7f080008;
         public static final int nama_editText=0x7f080004;
         public static final int nama_textView=0x7f08000a;
         public static final int nohp_textView=0x7f08000c;
-        public static final int spKodeBarang=0x7f08000d;
+        public static final int spKodeBarang=0x7f08000e;
+        public static final int textView1=0x7f08000f;
+        public static final int textView2=0x7f080011;
+        public static final int textView3=0x7f080014;
+        public static final int textView4=0x7f080016;
+        public static final int textView5=0x7f08000d;
         public static final int tgllahir_editText=0x7f080007;
-        public static final int txtHarga=0x7f08000f;
-        public static final int txtJumlah=0x7f080010;
-        public static final int txtNamaBarang=0x7f08000e;
-        public static final int txtTotal=0x7f080011;
+        public static final int txtHarga=0x7f080012;
+        public static final int txtJumlah=0x7f080013;
+        public static final int txtNamaBarang=0x7f080010;
+        public static final int txtTotal=0x7f080017;
         public static final int widget30=0x7f080003;
         public static final int widget31=0x7f080005;
         public static final int widget61=0x7f080001;

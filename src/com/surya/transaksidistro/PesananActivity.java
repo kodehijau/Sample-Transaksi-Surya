@@ -30,8 +30,8 @@ public class PesananActivity extends Activity implements OnClickListener {
 			txtTotal;
 	String get_nama, get_alamat, get_nohp;
 	Integer jmlBarisSpiner = 0;
-	Button btnSimpan;
-	// Global 0(@@)0
+	Button btnSimpan, btnHitung, btnBatal;
+	// Global 0(@@)0 0(@@)0 0(@@)0 0(@@)0 0(@@)0 0(@@)0
 	Global gSpiner = new Global(PesananActivity.this);
 	String[][] collection = null;
 	String currentVn = "";
@@ -54,7 +54,13 @@ public class PesananActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.pesanan);
 
 		btnSimpan = (Button) findViewById(R.id.btnSimpan);
+		btnHitung = (Button) findViewById(R.id.btnHitung);
+		btnBatal = (Button) findViewById(R.id.btnBatal);
+
+		btnHitung.setOnClickListener(this);
+		btnBatal.setOnClickListener(this);
 		btnSimpan.setOnClickListener(this);
+
 		// Inisialisasi 0(@@)0
 		spKodeBarang = (Spinner) findViewById(R.id.spKodeBarang);
 		selectCurrent = spKodeBarang.getSelectedItemPosition();
@@ -114,18 +120,11 @@ public class PesananActivity extends Activity implements OnClickListener {
 
 			}
 		});
+
 	}
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		new CreateNewProduct().execute();
-	}
-
-	/*
-	 * *
-	 * Background asyntask simpan barang
-	 */
+	//Background asyntask simpan barang
+	
 	class CreateNewProduct extends AsyncTask<String, String, String> {
 
 		/**
@@ -177,8 +176,6 @@ public class PesananActivity extends Activity implements OnClickListener {
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// Toast.makeText(PesananActivity.this, "Berhasil order",
-					// Toast.LENGTH_SHORT).show();
 					// successfully created product
 					Intent i = new Intent(PesananActivity.this,
 							PelangganActivity.class);
@@ -204,6 +201,33 @@ public class PesananActivity extends Activity implements OnClickListener {
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog once done
 			pDialog.dismiss();
+		}
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.btnSimpan:
+			new CreateNewProduct().execute();
+			break;
+		case R.id.btnHitung:
+
+			try {
+				int jumlah = Integer.parseInt(txtJumlah.getText().toString());
+				int harga = Integer.parseInt(txtHargaBarang.getText()
+						.toString());
+				int total = jumlah * harga;
+				txtTotal.setText(String.valueOf(total));
+			} catch (Throwable e) {
+				txtJumlah.setText("0");
+			}
+			break;
+		case R.id.btnBatal:
+			Intent intent = new Intent(this, PelangganActivity.class);
+			startActivity(intent);
+			break;
 		}
 
 	}
