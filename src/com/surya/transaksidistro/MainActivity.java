@@ -16,6 +16,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		Button btnTrx = (Button) findViewById(R.id.btnTransaksi);
 		btnTrx.setOnClickListener(this);
+
+		findViewById(R.id.btnTransaksi).setOnClickListener(this);
+		findViewById(R.id.btnBantuan).setOnClickListener(this);
+		findViewById(R.id.btnTentang).setOnClickListener(this);
 	}
 
 	@Override
@@ -28,9 +32,27 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		Intent i = new Intent(MainActivity.this, PelangganActivity.class);
-		startActivity(i);
-		finish();
+		Intent intent = null;
+		switch (v.getId()) {
+		case R.id.btnTransaksi:
+			intent = new Intent(MainActivity.this, PelangganActivity.class);
+			startActivity(intent);
+			
+			break;
+		case R.id.btnBantuan:
+			intent = new Intent(MainActivity.this, Bantuan.class);
+			startActivity(intent);
+
+			break;
+		case R.id.btnTentang:
+			intent = new Intent(MainActivity.this, Tentang.class);
+			startActivity(intent);
+
+			break;
+		default:
+			break;
+		}
+
 	}
 
 }
